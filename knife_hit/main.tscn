@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cqud8a2ivm4y0"]
+
+[ext_resource type="Script" uid="uid://yxiw0ii5wrfp" path="res://knife_hit/main.gd" id="1_gjqwg"]
+[ext_resource type="Script" uid="uid://cr0y8stb3wrtj" path="res://knife_hit/target.gd" id="2_gyauc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_10q1s"]
+radius = 150.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_gjqwg")
+
+[node name="Target" type="Area2D" parent="."]
+position = Vector2(960, 360)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_gyauc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource("CircleShape2D_10q1s")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -100
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.11, 0.12, 0.16, 1)
+
+[node name="Hint" type="Label" parent="."]
+offset_left = 700.0
+offset_top = 1000.0
+offset_right = 964.0
+offset_bottom = 1023.0
+scale = Vector2(2, 2)
+text = "Click / tap / Space to throw a knife"
