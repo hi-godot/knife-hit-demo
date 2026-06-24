@@ -1,7 +1,6 @@
 # Knife Hit — Godot 4 mechanic
 
-A minimal, self-contained ["Knife Hit"](https://en.wikipedia.org/wiki/Knife_Hit)
-style mechanic in **Godot 4** (GDScript, 2D): knives fly up into a spinning
+A minimal, self-contained Knife Hit style mechanic in **Godot 4** (GDScript, 2D): knives fly up into a spinning
 target, stick into the rim at a **consistent depth every time**, and ride the
 rotation.
 
