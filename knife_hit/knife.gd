@@ -12,12 +12,16 @@ extends Area2D
 @export var speed: float = 1400.0      ## flight speed in px/s
 @export var embed_depth: float = 18.0  ## how far past the rim the tip sinks
 @export var ray_margin: float = 8.0    ## extra ray length; prevents tunneling
-@export var spin_speed: float = 0.0    ## cosmetic air-spin (rad/s); 0 = blade points along flight
+## Cosmetic air-spin: each throw picks a random speed in this range AND a random
+## direction. Sprite-only -- the body and ray never spin. Set both to 0 for none.
+@export var spin_speed_min: float = 14.0  ## slowest air-spin (rad/s)
+@export var spin_speed_max: float = 30.0  ## fastest air-spin (rad/s)
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var ray: RayCast2D = $RayCast2D
 
 var velocity: Vector2 = Vector2.ZERO
+var spin_speed: float = 0.0  ## this throw's signed spin; rolled in throw()
 var _stuck: bool = false
 
 func _ready() -> void:
@@ -29,6 +33,10 @@ func _ready() -> void:
 func throw(direction: Vector2) -> void:
 	velocity = direction.normalized() * speed
 	rotation = direction.angle()  # local +X (blade tip & ray) faces flight dir
+	# Roll a random air-spin for this throw: random magnitude AND random direction.
+	spin_speed = randf_range(spin_speed_min, spin_speed_max)
+	if randf() < 0.5:
+		spin_speed = -spin_speed
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:

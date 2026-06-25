@@ -48,12 +48,14 @@ no matter the speed or which frame it landed on.
   classic "it still doesn't collide."
 - **The ray points along the knife's local +X.** `throw()` sets
   `rotation = direction.angle()`, so +X always faces the flight direction.
-- **Optional air-spin is cosmetic only.** `spin_speed` rotates *only* the
-  `Sprite2D` child — never the `Area2D` body or the ray, or detection breaks. On
-  impact it tweens back to flight heading (`TRANS_BACK` / `EASE_OUT`).
-- **Visible Collision Shapes on by default.** [`main.gd`](knife_hit/main.gd) sets
-  `get_tree().debug_collisions_hint = true` so you can see the ray as a line and
-  confirm it reaches the target.
+- **Air-spin is cosmetic only.** Each throw rolls a random `spin_speed`
+  (magnitude `spin_speed_min`..`spin_speed_max`, random direction) that rotates
+  *only* the `Sprite2D` child — never the `Area2D` body or the ray, or detection
+  breaks. On impact it tweens back to flight heading (`wrapf` then `TRANS_BACK` /
+  `EASE_OUT`).
+- **Want to inspect the ray/shapes?** Turn on **Debug → Visible Collision
+  Shapes** in the editor — the knife's `RayCast2D` then draws as a line so you
+  can confirm it reaches the target.
 
 ## Files
 
@@ -64,8 +66,9 @@ no matter the speed or which frame it landed on.
 | [`knife_hit/main.tscn`](knife_hit/main.tscn) / [`main.gd`](knife_hit/main.gd) | Minimal test bed; spawns a knife on input |
 
 Exported, tweakable in the Inspector: knife `speed`, `embed_depth`, `ray_margin`,
-`spin_speed`; target `spin_speed_min` / `spin_speed_max` (magnitude **and**
-direction randomized per run), `radius`.
+`spin_speed_min` / `spin_speed_max`; target `spin_speed_min` / `spin_speed_max`,
+`radius`. Both the knife (per throw) and the target (per run) randomize spin
+magnitude **and** direction within their min/max.
 
 ## Requirements
 

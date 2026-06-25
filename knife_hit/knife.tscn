@@ -12,8 +12,36 @@ script = ExtResource("1_xtgpq")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Blade" type="Polygon2D" parent="Sprite2D"]
-color = Color(0.85, 0.87, 0.92, 1)
-polygon = PackedVector2Array(60, 0, -15, -9, -15, -4, -58, -4, -58, 4, -15, 4, -15, 9)
+color = Color(0.72, 0.75, 0.8, 1)
+polygon = PackedVector2Array(2, -10, 44, -10, 70, 0, 40, 10, 2, 10)
+
+[node name="BladeBevel" type="Polygon2D" parent="Sprite2D"]
+color = Color(0.92, 0.93, 0.96, 1)
+polygon = PackedVector2Array(5, -7.5, 44, -7.5, 64, -0.5, 44, -2, 7, -2.5)
+
+[node name="Handle" type="Polygon2D" parent="Sprite2D"]
+color = Color(0.21, 0.2, 0.24, 1)
+polygon = PackedVector2Array(-8, -7.5, -50, -6, -50, 6, -8, 7.5)
+
+[node name="GripRing1" type="Polygon2D" parent="Sprite2D"]
+color = Color(0.4, 0.38, 0.45, 1)
+polygon = PackedVector2Array(-16, -7.6, -13, -7.6, -13, 7.6, -16, 7.6)
+
+[node name="GripRing2" type="Polygon2D" parent="Sprite2D"]
+color = Color(0.4, 0.38, 0.45, 1)
+polygon = PackedVector2Array(-26, -7.1, -23, -7.1, -23, 7.1, -26, 7.1)
+
+[node name="GripRing3" type="Polygon2D" parent="Sprite2D"]
+color = Color(0.4, 0.38, 0.45, 1)
+polygon = PackedVector2Array(-36, -6.6, -33, -6.6, -33, 6.6, -36, 6.6)
+
+[node name="Pommel" type="Polygon2D" parent="Sprite2D"]
+color = Color(0.82, 0.66, 0.22, 1)
+polygon = PackedVector2Array(-58, -6, -50, -8, -50, 8, -58, 6)
+
+[node name="Guard" type="Polygon2D" parent="Sprite2D"]
+color = Color(0.82, 0.66, 0.22, 1)
+polygon = PackedVector2Array(-9, -12, 2, -13, 4, 0, 2, 13, -9, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xtgpq")
