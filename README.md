@@ -1,5 +1,9 @@
 # Knife Hit — Godot 4 mechanic
 
+<p align="center">
+  <img src="media/knife-hit.gif" alt="Knife Hit demo: daggers thrown into a spinning target, each sticking at a consistent depth" width="440">
+</p>
+
 A minimal, self-contained Knife Hit style mechanic in **Godot 4** (GDScript, 2D): knives fly up into a spinning
 target, stick into the rim at a **consistent depth every time**, and ride the
 rotation.
