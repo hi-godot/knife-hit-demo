@@ -6,8 +6,17 @@ extends Area2D
 ## this node. Because it is an Area2D (not a body), the knife ray must set
 ## collide_with_areas = true to see it.
 
-@export var spin_speed: float = 2.0  ## rad/s
-@export var radius: float = 150.0    ## keep in sync with the CollisionShape2D
+@export var spin_speed_min: float = 1.5  ## rad/s, slowest the wheel can spin
+@export var spin_speed_max: float = 3.5  ## rad/s, fastest the wheel can spin
+@export var radius: float = 150.0        ## keep in sync with the CollisionShape2D
+
+var spin_speed: float = 0.0  ## actual signed speed; randomized in _ready()
+
+func _ready() -> void:
+	# Random magnitude AND random direction every run (Godot 4 auto-seeds the RNG).
+	spin_speed = randf_range(spin_speed_min, spin_speed_max)
+	if randf() < 0.5:
+		spin_speed = -spin_speed  # flip to spin the other way
 
 func _process(delta: float) -> void:
 	rotation += spin_speed * delta

@@ -64,7 +64,8 @@ no matter the speed or which frame it landed on.
 | [`knife_hit/main.tscn`](knife_hit/main.tscn) / [`main.gd`](knife_hit/main.gd) | Minimal test bed; spawns a knife on input |
 
 Exported, tweakable in the Inspector: knife `speed`, `embed_depth`, `ray_margin`,
-`spin_speed`; target `spin_speed`, `radius`.
+`spin_speed`; target `spin_speed_min` / `spin_speed_max` (magnitude **and**
+direction randomized per run), `radius`.
 
 ## Requirements
 

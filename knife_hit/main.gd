@@ -9,12 +9,6 @@ const KnifeScene := preload("res://knife_hit/knife.tscn")
 
 var _spawn_point := Vector2(960, 980)  # bottom-center of the 1920x1080 viewport
 
-func _enter_tree() -> void:
-	# Friendly "Debug -> Visible Collision Shapes" without the menu: enabling the
-	# hint here (before children enter the tree) makes the target's shape and
-	# every spawned knife's CollisionShape2D + RayCast2D draw at runtime.
-	get_tree().debug_collisions_hint = true
-
 func _unhandled_input(event: InputEvent) -> void:
 	var fire := false
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
